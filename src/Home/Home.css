@@ -1,0 +1,95 @@
+:root {
+  --primaryOne: hsl(193, 38%, 86%);
+  --primaryTwo: hsl(150, 100%, 66%);
+
+  --neutralOne: hsl(217, 19%, 38%); /*Blue 600*/
+  --neutralTwo: hsl(217, 19%, 24%); /*Blue 900*/
+  --neutralThree: hsl(218, 23%, 16%); /*Blue 950*/
+
+  --quoteForeSize: 28px;
+
+  --diceSize: 65px;
+  --diceShadow: rgba(82, 255, 169, 0.329);
+  --dividerImg: url(../../public/pattern-divider-mobile.svg);
+  --adviceContWidth: 100vw;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--neutralThree);
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+
+  background-color: var(--neutralTwo);
+  color: var(--primaryOne);
+  width: var(--adviceContWidth);
+  height: 45vh;
+  padding: 30px;
+  margin: 15px;
+  border-radius: 25px;
+  box-shadow: 18px 18px 20px 0px #00000026;
+}
+.adviceNumber {
+  color: var(--primaryTwo);
+  letter-spacing: 4px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.adviceQuote {
+  font-size: clamp(20px, 2vw, 28px);
+  text-align: center;
+}
+.adviceDivider {
+  width: 100%;
+  content: var(--dividerImg);
+
+  position: absolute;
+  bottom: calc(var(--diceSize));
+}
+.adviceDice {
+  background-color: var(--primaryTwo);
+
+  position: absolute;
+  bottom: calc(-1 * var(--diceSize) / 2);
+  left: calc(50% - var(--diceSize) / 2);
+
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: var(--diceSize);
+  height: var(--diceSize);
+
+  &:hover {
+    box-shadow: 0 0 15px 15px var(--diceShadow);
+  }
+}
+@media only screen and (min-width: 376px) {
+  :root {
+    --dividerImg: url(../../public/pattern-divider-mobile.svg);
+    --adviceContWidth: 60vw;
+  }
+}
+@media only screen and (min-width: 800px) {
+  :root {
+    --dividerImg: url(../../public/pattern-divider-desktop.svg);
+    --adviceContWidth: 40vw;
+  }
+}
